@@ -24,9 +24,17 @@ std::vector<int> Lottery::getNumbers() const
 	{
 		while (numbers.size() < 6)
 		{
-			if (m_output) m_output->print("Please enter a number: ");
+			// Prompts for a number and takes an input.
+			if (m_output) m_output->print("Please enter a number between 1 and 46: ");
 			int number = m_input->getInt();
-			numbers.push_back(number);
+
+			// If the number is within an acceptable range, adds it to the numbers.
+			if (number >= 1 && number <= 46)
+				numbers.push_back(number);
+
+			// If the number is outside the range, displays an error.
+			else if(m_output) 
+				m_output->print("Invalid number.\n");
 		}
 	}
 
