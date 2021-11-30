@@ -115,10 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Lottery.cpp" />
     <ClCompile Include="Mainline.cpp" />
     <ClCompile Include="Production.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Lottery.h" />
     <ClInclude Include="Production.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
