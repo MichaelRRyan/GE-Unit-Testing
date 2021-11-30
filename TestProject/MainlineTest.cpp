@@ -5,6 +5,10 @@
 
 using namespace std;
 
+void checkForSixNumbers();
+void checkNumberRange();
+void checkForRepeatingNumbers();
+
 int main()
 {
 	Production p;
@@ -15,4 +19,16 @@ int main()
 	assert(p.someMethod(a) == 0);
 	assert(p.someMethod(a) == 1);
 	cin.get();
+}
+
+void checkForSixNumbers()
+{
+}
+
+void checkNumberRange()
+{
+}
+
+void checkForRepeatingNumbers()
+{
 }

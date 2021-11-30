@@ -4,7 +4,7 @@ void Lottery::setInput(Input const* t_input)
 {
 }
 
-std::set<int> Lottery::getNumbers() const
+std::vector<int> Lottery::getNumbers() const
 {
-	return std::set<int>();
+	return std::vector<int>();
 }

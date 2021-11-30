@@ -1,7 +1,7 @@
 #ifndef LOTTERY_H
 #define LOTTERY_H
 
-#include <set>
+#include <vector>
 #include "Input.h"
 
 class Lottery
@@ -10,7 +10,7 @@ public:
 
 	void setInput(Input const * t_input);
 
-	std::set<int> getNumbers() const;
+	std::vector<int> getNumbers() const;
 
 };
 
