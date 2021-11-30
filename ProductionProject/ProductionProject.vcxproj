@@ -115,11 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CmdInput.cpp" />
     <ClCompile Include="Lottery.cpp" />
     <ClCompile Include="Mainline.cpp" />
     <ClCompile Include="Production.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CmdInput.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Lottery.h" />
     <ClInclude Include="Production.h" />
