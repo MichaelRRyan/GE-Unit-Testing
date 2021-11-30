@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <set>
 
-#include "../ProductionProject/Lottery.h"
+#include "Lottery.h"
 #include "TestInput.h"
 
 using namespace std;
@@ -34,7 +34,10 @@ int main()
 
 	std::cout << "All tests passed.";
 
+	std::cout << "\n\nPress enter to exit...";
 	cin.get();
+
+	return 0;
 }
 
 // ----------------------------------------------------------------------------

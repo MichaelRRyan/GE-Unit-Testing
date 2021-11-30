@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -108,6 +109,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,17 +117,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CmdInput.cpp" />
-    <ClCompile Include="CmdOutput.cpp" />
-    <ClCompile Include="Lottery.cpp" />
     <ClCompile Include="Mainline.cpp" />
+    <ClCompile Include="src\CmdInput.cpp" />
+    <ClCompile Include="src\CmdOutput.cpp" />
+    <ClCompile Include="src\Lottery.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CmdInput.h" />
-    <ClInclude Include="CmdOutput.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Lottery.h" />
-    <ClInclude Include="Output.h" />
+    <ClInclude Include="include\CmdInput.h" />
+    <ClInclude Include="include\CmdOutput.h" />
+    <ClInclude Include="include\Input.h" />
+    <ClInclude Include="include\Lottery.h" />
+    <ClInclude Include="include\Output.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

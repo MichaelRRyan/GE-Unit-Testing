@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainlineTest.cpp">
+    <ClCompile Include="..\ProductionProject\src\Lottery.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestInput.cpp">
+    <ClCompile Include="src\TestInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ProductionProject\Lottery.cpp">
+    <ClCompile Include="src\MainlineTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestInput.h">
+    <ClInclude Include="include\TestInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

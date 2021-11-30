@@ -18,30 +18,30 @@
     <ClCompile Include="Mainline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lottery.cpp">
+    <ClCompile Include="src\CmdInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CmdInput.cpp">
+    <ClCompile Include="src\CmdOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CmdOutput.cpp">
+    <ClCompile Include="src\Lottery.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Input.h">
+    <ClInclude Include="include\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lottery.h">
+    <ClInclude Include="include\Lottery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CmdInput.h">
+    <ClInclude Include="include\Output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Output.h">
+    <ClInclude Include="include\CmdInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CmdOutput.h">
+    <ClInclude Include="include\CmdOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

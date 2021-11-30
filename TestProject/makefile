@@ -1,17 +1,19 @@
+PROD_DIR	:= ./../ProductionProject/
+
 CXX			:= g++
 
-CXXFLAGS 	:= -I. -I./include
+CXXFLAGS 	:= -I. -I./include -I${PROD_DIR}/include
 
 MSG_START	:= "Build Started"
 MSG_END		:= "Build Complete"
 MSG_CLEAN	:= "Cleaning up"
 
 BUILD_DIR	:= ./bin
-SRC_DIR		:= ./
+SRC_DIR		:= ./src
 
 TARGET		:= ${BUILD_DIR}/app
 
-SRC			:= ${SRC_DIR}/*.cpp ${SRC_DIR}/src/*.cpp
+SRC			:= ${SRC_DIR}/*.cpp ${PROD_DIR}/src/*.cpp
 
 all			:= build
 

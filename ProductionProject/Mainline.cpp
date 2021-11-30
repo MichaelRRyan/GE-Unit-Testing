@@ -1,9 +1,12 @@
 #include <iostream>
+#include <limits>
 #include <vector>
 
 #include "Lottery.h"
 #include "CmdInput.h"
 #include "CmdOutput.h"
+
+const auto LineLimit = std::numeric_limits<std::streamsize>::max();
 
 int main()
 {
@@ -24,8 +27,9 @@ int main()
 		std::cout << number << " ";
 
 	// Pauses for input.
-	std::cout << "\n\n";
-	system("pause");
+	std::cout << "\n\nPress enter to exit...";
+	std::cin.ignore(LineLimit, '\n');
+	std::cin.get();
 
 	return 0;
 }

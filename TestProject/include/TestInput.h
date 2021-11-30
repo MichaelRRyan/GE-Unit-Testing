@@ -2,7 +2,7 @@
 #define TEST_INPUT_H
 
 #include <vector>
-#include "../ProductionProject/Input.h"
+#include "Input.h"
 
 class TestInput : public Input
 {
