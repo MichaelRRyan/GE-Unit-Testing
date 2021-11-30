@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ProductionProject\Lottery.cpp" />
-    <ClCompile Include="..\ProductionProject\Production.cpp" />
     <ClCompile Include="MainlineTest.cpp" />
     <ClCompile Include="TestInput.cpp" />
   </ItemGroup>

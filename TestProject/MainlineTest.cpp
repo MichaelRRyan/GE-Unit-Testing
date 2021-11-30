@@ -2,7 +2,6 @@
 #include <assert.h>
 #include <set>
 
-#include "../ProductionProject/Production.h"
 #include "../ProductionProject/Lottery.h"
 #include "TestInput.h"
 

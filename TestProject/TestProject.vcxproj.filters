@@ -18,9 +18,6 @@
     <ClCompile Include="MainlineTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ProductionProject\Production.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
