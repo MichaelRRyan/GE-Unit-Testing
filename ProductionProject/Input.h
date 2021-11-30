@@ -5,7 +5,7 @@ class Input
 {
 public:
 
-	virtual int getInt() const = 0;
+	virtual int getInt() = 0;
 
 };
 

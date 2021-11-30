@@ -8,7 +8,7 @@ class Lottery
 {
 public:
 
-	void setInput(Input const * t_input);
+	void setInput(Input * t_input);
 
 	std::vector<int> getNumbers() const;
 

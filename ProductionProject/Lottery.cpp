@@ -1,6 +1,6 @@
 #include "Lottery.h"
 
-void Lottery::setInput(Input const* t_input)
+void Lottery::setInput(Input * t_input)
 {
 }
 
