@@ -2,6 +2,7 @@
 #define LOTTERY_H
 
 #include <vector>
+#include <set>
 #include "Input.h"
 #include "Output.h"
 

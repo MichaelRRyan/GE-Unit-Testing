@@ -9,6 +9,8 @@ using namespace std;
 
 // ----------------------------------------------------------------------------
 
+void runTest(void (*t_func)(), std::string const & t_testName);
+
 void setup();
 void teardown();
 
@@ -25,25 +27,26 @@ Lottery * lottery;
 
 int main()
 {
-	// Check for six numbers.
-	setup();
-	checkForSixNumbers();
-	teardown();
+	// Run the tests.
+	runTest(&checkForSixNumbers, "Check for Six Numbers");
+	runTest(&checkNumberRange, "Check Number Range");
+	runTest(&checkForRepeatingNumbers, "Check for Repeating Numbers");
 
-	// Check number range.
-	setup();
-	checkNumberRange();
-	teardown();
-
-	// Check for repeating numbers.
-	setup();
-	checkForRepeatingNumbers();
-	teardown();
+	std::cout << "All tests passed.";
 
 	cin.get();
 }
 
 // ----------------------------------------------------------------------------
+
+void runTest(void(*t_func)(), std::string const& t_testName)
+{
+	std::cout << "- " << t_testName;
+	setup();
+	t_func();
+	teardown();
+	std::cout << " - Test Passed.\n";
+}
 
 // Sets up each test.
 void setup()
