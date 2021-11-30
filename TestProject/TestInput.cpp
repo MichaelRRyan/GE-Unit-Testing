@@ -1,5 +1,10 @@
 #include "TestInput.h"
 
+void TestInput::clearReturnValues()
+{
+	m_returnValues.clear();
+}
+
 void TestInput::setReturnValues(std::initializer_list<int> const& t_returnValues)
 {
 	for (int value : t_returnValues)

@@ -8,6 +8,8 @@ class TestInput : public Input
 {
 public:
 
+	void clearReturnValues();
+
 	void setReturnValues(std::initializer_list<int> const & t_returnValues);
 
 	virtual int getInt() override;
