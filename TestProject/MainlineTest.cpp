@@ -52,8 +52,8 @@ void setup()
 	input = new TestInput();
 
 	// Creates a new lottery object and initialises it with the test input.
-	Lottery lottery;
-	lottery.setInput(input);
+	lottery = new Lottery();
+	lottery->setInput(input);
 }
 
 // Cleans up each test.

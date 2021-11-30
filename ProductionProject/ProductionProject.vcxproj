@@ -116,13 +116,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CmdInput.cpp" />
+    <ClCompile Include="CmdOutput.cpp" />
     <ClCompile Include="Lottery.cpp" />
     <ClCompile Include="Mainline.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdInput.h" />
+    <ClInclude Include="CmdOutput.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Lottery.h" />
+    <ClInclude Include="Output.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

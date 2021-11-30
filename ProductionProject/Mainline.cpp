@@ -3,22 +3,29 @@
 
 #include "Lottery.h"
 #include "CmdInput.h"
+#include "CmdOutput.h"
 
 int main()
 {
-	// Creates and sets up the input and lottery.
+	// Creates and sets up the input, output, and lottery.
 	CmdInput input;
+	CmdOutput output;
 	Lottery lottery;
 	lottery.setInput(&input);
+	lottery.setOutput(&output);
 
 	// Gets and prints the lotto numbers.
 	std::vector<int> numbers = lottery.getNumbers();
+
+	system("cls");
 	std::cout << "The lotto numbers are: ";
+
 	for (int number : numbers)
 		std::cout << number << " ";
 
 	// Pauses for input.
-	std::cin.get();
+	std::cout << "\n\n";
+	system("pause");
 
 	return 0;
 }

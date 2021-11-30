@@ -3,14 +3,23 @@
 
 #include <vector>
 #include "Input.h"
+#include "Output.h"
 
 class Lottery
 {
 public:
 
-	void setInput(Input * t_input);
+	Lottery();
+
+	void setInput(Input* t_input);
+	void setOutput(Output* t_output);
 
 	std::vector<int> getNumbers() const;
+
+private:
+
+	Input * m_input;
+	Output * m_output;
 
 };
 
