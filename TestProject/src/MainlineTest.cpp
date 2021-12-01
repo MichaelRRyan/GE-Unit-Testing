@@ -1,128 +1,40 @@
-#include <iostream>
-#include <assert.h>
-#include <set>
+#include <ui/text/TestRunner.h>
+#include <TestResult.h>
+#include <TestResultCollector.h>
+#include <BriefTestProgressListener.h>
+#include <TestRunner.h>
+#include <CompilerOutputter.h>
 
-#include "Lottery.h"
-#include "TestInput.h"
-
-using namespace std;
-
-// ----------------------------------------------------------------------------
-
-void runTest(void (*t_func)(), std::string const & t_testName);
-
-void setup();
-void teardown();
-
-void checkForSixNumbers();
-void checkNumberRange();
-void checkForRepeatingNumbers();
+#include "LotteryTests.h"
 
 // ----------------------------------------------------------------------------
-
-TestInput * input;
-Lottery * lottery;
-
-// ----------------------------------------------------------------------------
-
 int main()
 {
-	// Run the tests.
-	runTest(&checkForSixNumbers, "Check for Six Numbers");
-	runTest(&checkNumberRange, "Check Number Range");
-	runTest(&checkForRepeatingNumbers, "Check for Repeating Numbers");
+	// Creates the test controller to manage tests.
+	CppUnit::TestResult controller;
 
-	std::cout << "All tests passed.";
+	// Creates and adds listeners to handle test results.
+	CppUnit::TestResultCollector result;
+	controller.addListener(&result);
 
-	std::cout << "\n\nPress enter to exit...";
-	cin.get();
+	CppUnit::BriefTestProgressListener progressListener;
+	controller.addListener(&progressListener);
+
+	// Creates the test runner and assigns the test fixture.
+	CppUnit::TextUi::TestRunner runner;
+	runner.addTest(LotteryTests::suite());
+
+	// Runs the tests.
+	std::cout << "\nRunning Lottery Unit Tests...\n\n";
+	runner.run(controller);
+
+	CppUnit::CompilerOutputter outputter(&result, std::cerr);
+	outputter.write();
+
+	std::cout << "\nPress enter to exit...";
+	std::cin.get();
 
 	return 0;
-}
-
-// ----------------------------------------------------------------------------
-
-void runTest(void(*t_func)(), std::string const& t_testName)
-{
-	std::cout << "- " << t_testName;
-	setup();
-	t_func();
-	teardown();
-	std::cout << " - Test Passed.\n";
-}
-
-// Sets up each test.
-void setup()
-{
-	// Creates the test input.
-	input = new TestInput();
-
-	// Creates a new lottery object and initialises it with the test input.
-	lottery = new Lottery();
-	lottery->setInput(input);
-}
-
-// Cleans up each test.
-void teardown()
-{
-	delete lottery;
-	delete input;
-}
-
-// ----------------------------------------------------------------------------
-
-void checkForSixNumbers()
-{
-	// GOOD INPUT TEST.
-
-	// Initialises the test input with valid values.
-	input->setReturnValues({ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-
-	// Checks that the size is equal to 6.
-	assert(lottery->getNumbers().size() == 6);
-
-	// MIXED INPUT TEST.
-
-	// Initialises the test input with 6 valid values and some junk values.
-	input->clearReturnValues();
-	input->setReturnValues({ -5, 2, 0, 4, 100, 420, 7, 8, 9, 10 });
-
-	// Checks that the size is equal to 6.
-	assert(lottery->getNumbers().size() == 6);
-}
-
-void checkNumberRange()
-{
-	// Initialises the test input with 6 valid values and some junk values.
-	input->setReturnValues({ -5, 2, 0, 4, 100, 420, 7, 8, 9, 10 });
-
-	// Gets the lotto numbers.
-	std::vector<int> numbers = lottery->getNumbers();
-
-	// Asserts that all returned numbers are within the correct range.
-	for (int number : numbers)
-		assert(number >= 0 && number <= 46);
-}
-
-void checkForRepeatingNumbers()
-{
-	// Initialises the test input with 6 valid values + duplicates.
-	input->setReturnValues({ 1, 1, 1, 10, 4, 4, 7, 40, 34, 40, 9, 10 });
-
-	// Gets the lotto numbers.
-	std::vector<int> numbers = lottery->getNumbers();
-
-	// Asserts that all returned numbers are unique.
-	std::set<int> checkedNumbers;
-	for (int number : numbers)
-	{
-		// Adds the number to the set and check that the size increased.
-		// Sets can only have one of each number, if a duplicate is added, the 
-		//		size will not increase.
-		size_t numCheckedNumbers = checkedNumbers.size();
-		checkedNumbers.insert(number);
-		assert(numCheckedNumbers + 1 == checkedNumbers.size());
-	}
 }
 
 // ----------------------------------------------------------------------------

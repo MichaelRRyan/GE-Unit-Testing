@@ -4,6 +4,9 @@ CXX			:= g++
 
 CXXFLAGS 	:= -I. -I./include -I${PROD_DIR}/include
 
+INCLUDE		:= -I"C:/msys64/mingw64/include/cppunit" -I"C:/msys64/mingw64/include/cppunit/ui/text"
+LIBS		:= -L"C:/msys64/mingw64/lib" -llibcppunit -lmingw32
+
 MSG_START	:= "Build Started"
 MSG_END		:= "Build Complete"
 MSG_CLEAN	:= "Cleaning up"
@@ -28,6 +31,6 @@ build:
 	#create bin directory
 	mkdir ${BUILD_DIR}
 
-	${CXX} -o ${TARGET} ${SRC} ${CXXFLAGS}
+	${CXX} -o ${TARGET} ${SRC} ${CXXFLAGS} ${INCLUDE} ${LIBS}
 	@echo ${MSG_END}
 	${TARGET}
