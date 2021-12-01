@@ -24,9 +24,15 @@ public:
 
     void checkForSixNumbers();
     void checkForSixNumbersMixedInput();
-    void checkForInvalidInput();
+    void checkForSixNumbersInvalidInput();
+    
     void checkNumberRange();
+    void checkNumberRangeMixedInput();
+    void checkNumberRangeInvalidInput();
+
     void checkForRepeatingNumbers();
+    void checkForRepeatingNumbersMixedInput();
+    void checkForRepeatingNumbersInvalidInput();
 
 private:
 
