@@ -21,6 +21,8 @@ public:
 
 private:
 
+	void print(std::string const & t_string);
+
 	Input * m_input;
 	Output * m_output;
 	bool m_valid;

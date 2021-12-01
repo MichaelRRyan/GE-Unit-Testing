@@ -28,17 +28,17 @@ std::vector<int> Lottery::getNumbers()
 		while (validNumbers.size() < 6)
 		{
 			// Prompts for a number and takes an input.
-			if (m_output) m_output->print("Please enter a number between 1 and 46: ");
+			m_output->print("Please enter a number between 1 and 46: ");
 			int number = m_input->getInt();
 
 			// Breaks if the inputted number is negative one.
 			if (number == -1)
 			{
 				m_valid = false;
-				if (m_output)
-					m_output->print("\"-1\" Recieved, input cancelled.\n");
+				print("\"-1\" Recieved, input cancelled.\n");
 				break;
 			}
+
 			// If the number is within an acceptable range, adds it to the numbers.
 			else if (number >= 1 && number <= 46)
 			{
@@ -46,12 +46,12 @@ std::vector<int> Lottery::getNumbers()
 				validNumbers.insert(number);
 
 				// If the number is a duplicate, displays an error.
-				if (validNumbers.size() == size && m_output)
-					m_output->print("Duplicate number.\n");
+				if (validNumbers.size() == size)
+					print("Duplicate number.\n");
 			}
+
 			// If the number is outside the range, displays an error.
-			else if(m_output) 
-				m_output->print("Invalid number.\n");
+			else print("Invalid number.\n");
 		}
 
 		// Adds all the valid numbers to the vector.
@@ -65,4 +65,10 @@ std::vector<int> Lottery::getNumbers()
 bool Lottery::isValid() const
 {
 	return m_valid;
+}
+
+void Lottery::print(std::string const & t_string)
+{
+	if(m_output) 
+		m_output->print(t_string);
 }
