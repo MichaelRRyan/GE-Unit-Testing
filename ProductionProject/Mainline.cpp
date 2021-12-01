@@ -26,6 +26,12 @@ int main()
 	for (int number : numbers)
 		std::cout << number << " ";
 
+	// Prints whether the lotto is valid or not (got enough inputs).
+	if (lottery.isValid())
+		std::cout << "\nThe lotto is valid.";
+	else
+		std::cout << "\nThe lotto is invalid.";
+
 	// Pauses for input.
 	std::cout << "\n\nPress enter to exit...";
 	std::cin.ignore(LineLimit, '\n');

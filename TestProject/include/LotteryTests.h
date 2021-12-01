@@ -23,6 +23,8 @@ public:
     void tearDown();
 
     void checkForSixNumbers();
+    void checkForSixNumbersMixedInput();
+    void checkForInvalidInput();
     void checkNumberRange();
     void checkForRepeatingNumbers();
 

@@ -11,6 +11,16 @@ CppUnit::Test * LotteryTests::suite()
     ));
 
     suit->addTest(new CppUnit::TestCaller<LotteryTests>(
+        "Check for Six Numbers with Mixed Input", 
+        &LotteryTests::checkForSixNumbersMixedInput
+    ));
+
+    suit->addTest(new CppUnit::TestCaller<LotteryTests>(
+        "Check for Invalid Input", 
+        &LotteryTests::checkForInvalidInput
+    ));
+
+    suit->addTest(new CppUnit::TestCaller<LotteryTests>(
         "Check Number Range", 
         &LotteryTests::checkNumberRange
     ));
@@ -46,22 +56,34 @@ void LotteryTests::tearDown()
 // ----------------------------------------------------------------------------
 void LotteryTests::checkForSixNumbers()
 {
-    // GOOD INPUT TEST.
-
 	// Initialises the test input with valid values.
 	m_input->setReturnValues({ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
 	// Checks that the size is equal to 6.
 	CPPUNIT_ASSERT(m_lottery->getNumbers().size() == 6);
+	CPPUNIT_ASSERT(m_lottery->isValid() == true);
+}
 
-	// MIXED INPUT TEST.
-
-	// Initialises the test input with 6 valid values and some junk values.
-	m_input->clearReturnValues();
-	m_input->setReturnValues({ -5, 2, 0, 4, 100, 420, 7, 8, 9, 10 });
+// ----------------------------------------------------------------------------
+void LotteryTests::checkForSixNumbersMixedInput()
+{
+    // Initialises the test input with 6 valid values and some junk values.
+	m_input->setReturnValues({ 1, -5, 2, 0, 4, 100, 8, 420, 7, 9 });
 
 	// Checks that the size is equal to 6.
 	CPPUNIT_ASSERT(m_lottery->getNumbers().size() == 6);
+	CPPUNIT_ASSERT(m_lottery->isValid() == true);
+}
+
+// ----------------------------------------------------------------------------
+void LotteryTests::checkForInvalidInput()
+{
+    // Initialises the test input with less than 6 values.
+	m_input->setReturnValues({ 1, 2, 3 });
+
+	// Checks that the size is equal to 3.
+	CPPUNIT_ASSERT(m_lottery->getNumbers().size() == 3);
+	CPPUNIT_ASSERT(m_lottery->isValid() == false);
 }
 
 // ----------------------------------------------------------------------------
@@ -76,6 +98,8 @@ void LotteryTests::checkNumberRange()
 	// Asserts that all returned numbers are within the correct range.
 	for (int number : numbers)
 		CPPUNIT_ASSERT(number >= 0 && number <= 46);
+    
+	CPPUNIT_ASSERT(m_lottery->isValid() == true);
 }
 
 // ----------------------------------------------------------------------------
@@ -98,6 +122,8 @@ void LotteryTests::checkForRepeatingNumbers()
 		checkedNumbers.insert(number);
 		CPPUNIT_ASSERT(numCheckedNumbers + 1 == checkedNumbers.size());
 	}
+
+	CPPUNIT_ASSERT(m_lottery->isValid() == true);
 }
 
 // ----------------------------------------------------------------------------
